@@ -1,0 +1,35 @@
+.products {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+
+  .link {
+    margin: 0 5px;
+    font-size: 0.8rem;
+  }
+}
+
+.products p::after {
+  content: ">";
+  color: var(--dark-gray);
+}
+
+.products p:last-child::after {
+  content: "";
+}
+
+.products p:nth-last-child(1) {
+  font-weight: bold;
+  color: var(--dark-gray);
+}
+
+@media screen and (max-width: 769px) {
+  .products {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 8px;
+    }
+  }
+}

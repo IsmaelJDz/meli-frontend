@@ -1,34 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend MELI Ecommerce 🛍
 
-## Getting Started
+🔎 Search your favorite product in Mercado Libre
 
-First, run the development server:
+![Captura de la app](public/screens/screenOne.png)
 
-```bash
-npm run dev
-# or
-yarn dev
+![Captura de la app](public/screens/screenTwo.png)
+
+[See the aplication](https://meli-front-bay.vercel.app/) 👀
+
+## Welcome! 👋
+
+\*\* Frontend Technologies 🛠
+
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Next
+- Context API
+- Sass
+- TypeScript
+- React Query
+
+\*\* Backend Technologies 🛠
+
+- Node
+- Express
+
+## Pre-requirements 📋
+
+- Node
+- Npm
+  -Yarn
+
+## Run app " Development " ⚙️
+
+```
+1.- npm install or yarn install
+2.- npm run dev or yarn dev  --Mode development
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run app " Production " 🚀
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+1.- npm install or yarn install
+2.- npm run build or yarn build
+3.- npm run start or yarn start  --Mode production
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Run Express App" Development " ⚙️
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+1.- npm run dev or yarn dev
+```
 
-## Learn More
+## Deployment 📦
 
-To learn more about Next.js, take a look at the following resources:
+- [Vercel](https://vercel.com/) - Vercel Fronted
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+_Tools Frontend I've used in this project_
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Npm](https://www.npmjs.com/) - Npm
+- [React](https://es.reactjs.org/) - React
+- [NextJs](https://nextjs.org/) - NextJs
+- [Sass](https://sass-lang.com/) - Sass
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript
+- [ReactQuery](https://react-query.tanstack.com/) - React Query
 
-## Deploy on Vercel
+_Tools Backed I've used in this project_
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [NodeJs](https://nodejs.org/en/) - NodeJs
+- [Express](https://expressjs.com/es/) - Express
+- [Postman](https://www.postman.com/) - Postman
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Author ✒️
+
+_Developed by_
+
+- **Ismael JDz7** - _Frontend-Developer_ - [IsmaelJdz7](https://github.com/IsmaelJDz)
+
+---
+
+⌨️ with ❤️ by [IsmaelJDz7](https://github.com/IsmaelJDz) 😊 and JS
