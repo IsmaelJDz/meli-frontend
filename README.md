@@ -6,7 +6,7 @@
 
 ![Captura de la app](public/screens/screenTwo.png)
 
-[See the aplication](https://meli-front-bay.vercel.app/) 👀
+[See the aplication](https://meli-frontend-mu.vercel.app) 👀
 
 ## Welcome! 👋
 
