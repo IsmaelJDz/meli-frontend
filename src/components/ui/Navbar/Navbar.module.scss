@@ -1,15 +1,18 @@
 .header {
-  width: 100%;
-  border-bottom: 1px solid var(--gray-light);
   background-color: var(--yellow);
+  border-bottom: 1px solid var(--gray-light);
   height: 50px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9;
 
   .wrapper {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
     align-items: center;
+    display: flex;
     height: 100%;
+    margin: auto;
+    max-width: 1200px;
   }
 }
 

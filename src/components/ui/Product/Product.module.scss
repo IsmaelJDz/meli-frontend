@@ -1,16 +1,17 @@
 .productId {
   background-color: var(--light-gray);
   height: auto;
+  padding-bottom: 20px;
 
   .wrapper {
-    max-width: 1200px;
-    margin: auto;
     background-color: var(--white);
+    margin: auto;
+    max-width: 1200px;
     .product {
       display: flex;
       .img {
-        margin: 16px;
         border-radius: 4px;
+        margin: 16px;
       }
 
       .info {
@@ -27,8 +28,8 @@
           font-size: 24px;
           font-weight: bold;
           margin-top: 16px;
-          width: 25rem;
           max-width: 27rem;
+          width: 25rem;
         }
 
         .priceProduct {
@@ -38,12 +39,12 @@
 
         .button {
           background-color: var(--blue);
-          color: var(--white);
+          border-radius: 4px;
           border: none;
+          color: var(--white);
+          cursor: pointer;
           padding: 10px;
           width: 100%;
-          border-radius: 4px;
-          cursor: pointer;
         }
       }
     }
@@ -53,16 +54,16 @@
     max-width: 680px;
 
     .detailsTitle {
-      padding: 32px;
       font-size: 28px;
       margin: 0;
+      padding: 32px;
     }
 
     .detailsDesc {
       color: var(--dark-gray);
-      padding: 0 0 32px 32px;
       font-size: 1rem;
       margin: 0;
+      padding: 0 0 32px 32px;
     }
   }
 }
@@ -76,8 +77,8 @@
     }
 
     .detailsDesc {
-      width: 100%;
       padding: 10px !important;
+      width: 100%;
     }
   }
 }
