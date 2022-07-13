@@ -56,7 +56,7 @@ export const Product: FC<Props> = ({ product }) => {
               {product?.condition} {" - "} {product?.sold_quantity}{" "}
               <span>Vendidos</span>
             </p>
-            <p className={styles.titleProduct}> {product.item.title} </p>
+            <h1 className={styles.titleProduct}> {product.item.title} </h1>
             <p className={styles.priceProduct}>
               {`${formatCurrency(product?.price?.amount)}`}
             </p>

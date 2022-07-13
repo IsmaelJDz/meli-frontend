@@ -22,10 +22,10 @@ export const Products: FC<Props> = ({ products }) => {
   };
 
   return (
-    <article className={styles.product}>
+    <section className={styles.product}>
       <div className={styles.container}>
         {products?.map((product: Item) => (
-          <div
+          <article
             key={product.id}
             className={styles.productInfo}
             onClick={() => handleClick(product.id)}
@@ -57,9 +57,9 @@ export const Products: FC<Props> = ({ products }) => {
                 <p> {product.title}</p>
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </article>
+    </section>
   );
 };

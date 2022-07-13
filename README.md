@@ -1,5 +1,9 @@
 # Frontend MELI Ecommerce 🛍
 
+🔎 Web Accessibility 🛠
+
+![Captura de la app](public/screens/meli-front.png)
+
 🔎 Search your favorite product in Mercado Libre
 
 ![Captura de la app](public/screens/screenOne.png)
