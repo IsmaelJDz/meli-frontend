@@ -13,6 +13,7 @@ export interface Item {
   id: string;
   title: string;
   prices: Price[];
+  price: number;
   picture: string;
   condition: string;
   free_shipping: boolean;

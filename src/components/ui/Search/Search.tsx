@@ -41,11 +41,25 @@ export const Search = () => {
       return;
     }
 
-    if (router.pathname !== "/") {
-      router.push("/");
+    if (router.pathname === "/") {
+      return router.push({
+        pathname: "items",
+        query: { search: product }
+      });
     }
 
-    setSearchData({ author, categories, items });
+    if (router.pathname !== "/") {
+      return router.push({
+        pathname: "/items",
+        query: { search: product }
+      });
+    }
+
+    // if (router.pathname === "/") {
+    //   router.push(`/?items?search=${product}`, undefined, { shallow: true });
+    // }
+
+    //setSearchData({ author, categories, items });
   };
 
   const handleKeyPress = async (
@@ -67,29 +81,58 @@ export const Search = () => {
 
       event.preventDefault();
 
-      const prevQuerySearch = queryClient.getQueryData([
-        "products",
-        product
-      ]) as SerializedData;
+      // const prevQuerySearch = queryClient.getQueryData([
+      //   "products",
+      //   product
+      // ]) as SerializedData;
+
+      console.log("product", product);
+      console.log("pathname", router.pathname);
+
+      // if (router.pathname !== "/") {
+      //   setTimeout(() => {
+      //     router.push("/");
+      //   }, 500);
+      // }
+
+      if (router.pathname === "/") {
+        return router.push({
+          pathname: "items",
+          query: { search: product }
+        });
+      }
 
       if (router.pathname !== "/") {
-        setTimeout(() => {
-          router.push("/");
-        }, 500);
+        return router.push({
+          pathname: "/items",
+          query: { search: product }
+        });
       }
 
-      if (prevQuerySearch) {
-        if (prevQuerySearch.items.length > 0) {
-          setSearchData(prevQuerySearch);
-          return;
-        }
-      }
+      // if (router.pathname === "/") {
+      //   router.push(`items?search=${product}`);
+      // }
 
-      const response = await fetchData(`products/items?search=${product}`).then(
-        response => response.data
-      );
+      // if (router.pathname !== "/") {
+      //   //router.push(`?search=${product}`);
+      //   router.push({
+      //     pathname: "items?search=",
+      //     query: { search: product }
+      //   });
+      // }
 
-      setSearchData(response);
+      // if (prevQuerySearch) {
+      //   if (prevQuerySearch.items.length > 0) {
+      //     setSearchData(prevQuerySearch);
+      //     return;
+      //   }
+      // }
+
+      // const response = await fetchData(`products/items?search=${product}`).then(
+      //   response => response.data
+      // );
+
+      // setSearchData(response);
     }
   };
 

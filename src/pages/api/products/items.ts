@@ -48,6 +48,7 @@ export default async function handler(
         id,
         title,
         prices: { prices: pricesArray },
+        price,
         thumbnail,
         shipping,
         condition
@@ -56,6 +57,7 @@ export default async function handler(
         id,
         title,
         prices: pricesArray,
+        price,
         picture: thumbnail,
         condition,
         free_shipping: shipping.free_shipping

@@ -11,12 +11,12 @@ interface Props {
   products: Item[];
 }
 
-export const Products: FC<Props> = ({ products }: any) => {
+export const Products: FC<Props> = ({ products }) => {
   const router = useRouter();
 
   const handleClick = (productId: string) => {
     router.push({
-      pathname: `/product/[slug]`,
+      pathname: `/items/[slug]`,
       query: { slug: `${productId}` }
     });
   };
@@ -39,10 +39,10 @@ export const Products: FC<Props> = ({ products }: any) => {
                 objectFit="scale-down"
               />
             </div>
-            <div key={products.id} className={styles.productDetail}>
+            <div key={product.id} className={styles.productDetail}>
               <div className={styles.amount}>
                 <p className={styles.price}>
-                  {`${formatCurrency(product.prices[0].amount)}`}
+                  {`${formatCurrency(product.price)}`}
                 </p>
                 {product.free_shipping && (
                   <div className={styles.icon}>

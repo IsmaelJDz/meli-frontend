@@ -7,6 +7,9 @@ export interface ProductResponse {
   free_shipping: boolean;
   sold_quantity: number;
   description: string;
+
+  status?: number;
+  message?: string;
 }
 
 export interface Author {

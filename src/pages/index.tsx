@@ -1,4 +1,6 @@
+import { Layout } from "@/components/layout";
 import { Home } from "@/components/ui/Home";
+import { useAppContext } from "@/hooks/HomeContext";
 
 /**
  *
@@ -7,5 +9,13 @@ import { Home } from "@/components/ui/Home";
  */
 
 export default function Main() {
-  return <Home />;
+  const { loading, data } = useAppContext();
+
+  console.log("data", data);
+
+  return (
+    <Layout>
+      <Home data={data} />
+    </Layout>
+  );
 }

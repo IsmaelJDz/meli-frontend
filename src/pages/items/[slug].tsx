@@ -6,6 +6,7 @@ import { Product } from "@/components/ui/Product";
 
 import { fetchData } from "@/utils/common";
 import { ProductResponse } from "@/interfaces/product";
+import NotFound from "@/components/ui/NotFound/NotFound";
 
 /**
  *
@@ -20,7 +21,7 @@ interface Props {
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const { slug } = ctx.params as { slug: string };
 
-  const data: ProductResponse = await fetchData(`/product/${slug}`);
+  const data: ProductResponse = await fetchData(`product/${slug}`);
 
   if (!data) {
     return {
@@ -42,10 +43,18 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   };
 };
 
+function CallToActionWidget({ product }: Props) {
+  if (product?.status === 404) {
+    return <NotFound />;
+  }
+
+  return <Product product={product} />;
+}
+
 const ProductName: FC<Props> = ({ product }) => {
   return (
     <Layout>
-      <Product product={product} />
+      <CallToActionWidget product={product} />
     </Layout>
   );
 };

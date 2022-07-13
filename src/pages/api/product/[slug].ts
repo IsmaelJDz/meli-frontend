@@ -2,9 +2,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import { ProductResponse } from "@/interfaces/product";
 
+interface ProductNotExist {
+  status: number;
+  message: string;
+}
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ProductResponse>
+  res: NextApiResponse<ProductResponse | ProductNotExist>
 ) {
   const { slug } = req.query;
 
@@ -33,6 +38,8 @@ export default async function handler(
         fetcher(`${slug}`)
       ]);
 
+      console.log("details", details);
+
       return { description, details };
     } catch (error) {
       console.error("error: " + error);
@@ -40,6 +47,13 @@ export default async function handler(
   };
 
   const data = await response();
+
+  if (data?.description?.status === 404) {
+    return res.status(404).json({
+      status: 404,
+      message: "Product not found"
+    });
+  }
 
   const signUser = {
     author: {
