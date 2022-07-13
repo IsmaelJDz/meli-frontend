@@ -7,25 +7,43 @@ import { useQuery, QueryClient, dehydrate } from "react-query";
 import { fetchData } from "@/utils/common";
 import { Home } from "../../components/ui/Home/Home";
 
-type Props = {};
+import NotFound from "@/components/ui/NotFound/NotFound";
+
+type PropsEmpty = {};
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  const search = context.query?.search as string;
+  if (context.query.search) {
+    const search = context.query?.search as string;
 
-  const queryClient = new QueryClient();
+    const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["getProducts", search], () =>
-    fetchData(`products/items?search=${search}`)
-  );
+    await queryClient.prefetchQuery(["getProducts", search], () =>
+      fetchData(`products/items?search=${search}`)
+    );
+
+    return {
+      props: {
+        dehydratedState: dehydrate(queryClient)
+      }
+    };
+  }
 
   return {
     props: {
-      dehydratedState: dehydrate(queryClient)
+      dehydratedState: []
     }
   };
 };
 
-export default function Products({}: Props) {
+function CallToActionWidget({ dataProduct }: any) {
+  if (!dataProduct) {
+    return <NotFound />;
+  }
+
+  return <Home {...dataProduct} />;
+}
+
+export default function Products({}: PropsEmpty) {
   const router = useRouter();
   const search =
     typeof router.query?.search === "string" ? router.query?.search : "";
@@ -46,7 +64,7 @@ export default function Products({}: Props) {
 
   return (
     <Layout>
-      <Home {...dataProduct} />
+      <CallToActionWidget dataProduct={dataProduct} />
     </Layout>
   );
 }

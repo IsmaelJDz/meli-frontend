@@ -10,9 +10,6 @@ import { useAppContext } from "@/hooks/HomeContext";
 
 export default function Main() {
   const { loading, data } = useAppContext();
-
-  console.log("data", data);
-
   return (
     <Layout>
       <Home data={data} />

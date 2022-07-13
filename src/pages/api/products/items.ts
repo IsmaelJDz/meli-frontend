@@ -7,10 +7,19 @@ interface Props {
   data: SerializedData;
 }
 
+interface ProductNotExist {
+  status: number;
+  message: string;
+}
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Props>
+  res: NextApiResponse<Props | ProductNotExist>
 ) {
+  if (req.method === "GET" && req.query.search === "undefined") {
+    return res.status(404).json({ status: 404, message: "Product not found" });
+  }
+
   if (req.method === "GET" && req.query.search !== "") {
     const queryProducts = req.query.search;
     const response = await fetch(

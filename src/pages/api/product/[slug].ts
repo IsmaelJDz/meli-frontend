@@ -38,8 +38,6 @@ export default async function handler(
         fetcher(`${slug}`)
       ]);
 
-      console.log("details", details);
-
       return { description, details };
     } catch (error) {
       console.error("error: " + error);

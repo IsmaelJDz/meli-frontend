@@ -9,7 +9,6 @@ import { useDebounce } from "@/hooks/Debounce";
 
 import { Button } from "@/components/ui/Button";
 import { SerializedData } from "@/interfaces/serialized-data";
-import { fetchData } from "@/utils/common";
 
 import styles from "./Search.module.scss";
 
@@ -55,10 +54,6 @@ export const Search = () => {
       });
     }
 
-    // if (router.pathname === "/") {
-    //   router.push(`/?items?search=${product}`, undefined, { shallow: true });
-    // }
-
     //setSearchData({ author, categories, items });
   };
 
@@ -86,15 +81,6 @@ export const Search = () => {
       //   product
       // ]) as SerializedData;
 
-      console.log("product", product);
-      console.log("pathname", router.pathname);
-
-      // if (router.pathname !== "/") {
-      //   setTimeout(() => {
-      //     router.push("/");
-      //   }, 500);
-      // }
-
       if (router.pathname === "/") {
         return router.push({
           pathname: "items",
@@ -108,18 +94,6 @@ export const Search = () => {
           query: { search: product }
         });
       }
-
-      // if (router.pathname === "/") {
-      //   router.push(`items?search=${product}`);
-      // }
-
-      // if (router.pathname !== "/") {
-      //   //router.push(`?search=${product}`);
-      //   router.push({
-      //     pathname: "items?search=",
-      //     query: { search: product }
-      //   });
-      // }
 
       // if (prevQuerySearch) {
       //   if (prevQuerySearch.items.length > 0) {

@@ -21,30 +21,38 @@ interface Props {
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const { slug } = ctx.params as { slug: string };
 
-  const data: ProductResponse = await fetchData(`product/${slug}`);
+  try {
+    const data: ProductResponse = await fetchData(`product/${slug}`);
 
-  if (!data) {
+    if (!data) {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false
+        }
+      };
+    }
+
+    if (Object.keys(data).length === 0) {
+      return { notFound: true };
+    }
+
     return {
-      redirect: {
-        destination: "/",
-        permanent: false
+      props: {
+        product: data
+      }
+    };
+  } catch (error) {
+    return {
+      props: {
+        product: null
       }
     };
   }
-
-  if (Object.keys(data).length === 0) {
-    return { notFound: true };
-  }
-
-  return {
-    props: {
-      product: data
-    }
-  };
 };
 
 function CallToActionWidget({ product }: Props) {
-  if (product?.status === 404) {
+  if (product?.status === 404 || !product) {
     return <NotFound />;
   }
 

@@ -1,8 +1,5 @@
 import { FC } from "react";
-import { Layout } from "@/components/layout";
-import { Loading } from "@/components/ui/Loading";
 
-import { useAppContext } from "@/hooks/HomeContext";
 import { Products } from "@/components/ui/Products";
 import { Categories } from "../Categories";
 import { Item } from "@/interfaces/serialized-data";
@@ -17,13 +14,6 @@ interface Props {
 }
 
 export const Home: FC<Props> = ({ data: { items = [], categories = [] } }) => {
-  //console.log("data", items);
-
-  // const {
-  //   loading,
-  //   data: { items, categories }
-  // } = useAppContext();
-
   return (
     <div className={styles.main}>
       {items.length > 0 && (
@@ -36,7 +26,6 @@ export const Home: FC<Props> = ({ data: { items = [], categories = [] } }) => {
         />
       )}
       {items.length > 0 && <Products products={items} />}
-      {/* {loading && <Loading />} */}
     </div>
   );
 };
