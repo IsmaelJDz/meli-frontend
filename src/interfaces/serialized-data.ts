@@ -12,7 +12,8 @@ export interface Author {
 export interface Item {
   id: string;
   title: string;
-  prices: Price[];
+  //prices: Price[];
+  currency_id: string;
   price: number;
   picture: string;
   condition: string;

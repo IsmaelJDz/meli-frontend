@@ -52,7 +52,8 @@ export const Products: FC<Props> = ({ products }) => {
               </div>
               <div className={styles.info}>
                 <p className={styles.currency}>
-                  {product.prices[0].currency_id}
+                  {/* {product.prices[0].currency_id} */}
+                  {product?.currency_id}
                 </p>
                 <p> {product.title}</p>
               </div>

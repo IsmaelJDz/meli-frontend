@@ -21,12 +21,15 @@ export default async function handler(
   }
 
   if (req.method === "GET" && req.query.search !== "") {
-    const queryProducts = req.query.search;
+    const queryProduct = req.query.search;
+
     const response = await fetch(
-      `https://api.mercadolibre.com/sites/MLA/search?q=${queryProducts}&limit=4`
+      `https://api.mercadolibre.com/sites/MLA/search?q=${queryProduct}&limit=4`
     );
-    const resJson: ProductsResponse = await response.json();
-    const { results = [], filters = [] } = resJson;
+
+    const jsonResponse: ProductsResponse = await response.json();
+
+    const { results = [], filters = [] } = jsonResponse;
 
     const filteredCategories: string[] = [];
 
@@ -56,7 +59,8 @@ export default async function handler(
       const {
         id,
         title,
-        prices: { prices: pricesArray },
+        //prices: { prices: pricesArray },
+        currency_id,
         price,
         thumbnail,
         shipping,
@@ -65,7 +69,8 @@ export default async function handler(
       return {
         id,
         title,
-        prices: pricesArray,
+        currency_id,
+        //prices: pricesArray,
         price,
         picture: thumbnail,
         condition,
